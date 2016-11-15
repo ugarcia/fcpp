@@ -1,2 +1,4 @@
 # fcpp
-FrontCoder C++ Base Library
+FrontCoder C++ Base Library:
+---------------------------
+Ongoing C++ basic utilities / classes

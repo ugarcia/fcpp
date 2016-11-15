@@ -27,3 +27,11 @@
 *.exe
 *.out
 *.app
+
+# Build folders
+build
+
+# IDEs / Editors configurations
+.idea
+.vscode
+.sublime
