@@ -23,9 +23,10 @@ set(INCLUDES ${FCPP_INCLUDES})
 
 set(SOURCES
         ${PROJECT_SOURCE_DIR}/ext/jsoncpp/src/jsoncpp.cpp
-        ${PROJECT_SOURCE_DIR}/src/util/Util.cpp
-        ${PROJECT_SOURCE_DIR}/src/http/HttpResponse.cpp
-        ${PROJECT_SOURCE_DIR}/src/http/HttpClient.cpp
+        ${PROJECT_SOURCE_DIR}/src/fcpp/util/Util.cpp
+        ${PROJECT_SOURCE_DIR}/src/fcpp/http/HttpResponse.cpp
+        ${PROJECT_SOURCE_DIR}/src/fcpp/http/HttpClient.cpp
+        ${PROJECT_SOURCE_DIR}/src/fcpp/sockets/SocketClient.cpp
         )
 
 find_package(CURL)
@@ -45,6 +46,10 @@ target_link_libraries(${PROJECT_NAME} ${LIBS})
 add_library(${PROJECT_NAME}_static STATIC ${FCPP_INCLUDES} ${SOURCES})
 target_link_libraries(${PROJECT_NAME}_static ${LIBS})
 set_target_properties(${PROJECT_NAME}_static PROPERTIES OUTPUT_NAME ${PROJECT_NAME})
+
+# Tests
+add_executable(${PROJECT_NAME}_test_twitch_irc ${FCPP_INCLUDES} ${PROJECT_SOURCE_DIR}/test/fcpp/sockets/twitch_irc.cpp)
+target_link_libraries(${PROJECT_NAME}_test_twitch_irc ${PROJECT_NAME})
 
 install(DIRECTORY ${FCPP_INCLUDES} DESTINATION include)
 install(TARGETS ${PROJECT_NAME} DESTINATION lib)

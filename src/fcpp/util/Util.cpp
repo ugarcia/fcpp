@@ -10,7 +10,7 @@ using namespace fcpp::util;
 // Trims a string (both sides, spaces, tabs and endlines)
 string Util::trim(string s)
 {
-    s.erase(0, s.find_first_not_of(" \n\r\t"));                                                                                               
+    s.erase(0, s.find_first_not_of(" \n\r\t"));
     s.erase(s.find_last_not_of(" \n\r\t")+1);
     return s;
 }
